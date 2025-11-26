@@ -6,146 +6,273 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
+/* ---- Base ---- */
+* {
+    box-sizing: border-box;
+}
+
 body {
-    font-family: "Helvetica Neue", Arial, sans-serif;
-    background-color: #f7f7f7;
     margin: 0;
-    padding: 0;
-    color: #222;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                 "Helvetica Neue", Arial, sans-serif;
+    background: #eef1f5;
+    color: #1f2933;
 }
 
-.container {
-    max-width: 900px;
-    margin: 50px auto;
-    background: white;
-    padding: 50px 60px;
-    box-shadow: 0 0 12px rgba(0,0,0,0.08);
+/* ---- Layout ---- */
+.page-wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
-h1 {
+/* ---- Top bar ---- */
+.topbar {
+    background: linear-gradient(90deg, #1e3a8a, #2563eb);
+    color: #f9fafb;
+    padding: 18px 20px;
+}
+
+.topbar-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+}
+
+.topbar-name {
+    font-size: 26px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+}
+
+.topbar-role {
+    font-size: 15px;
+    opacity: 0.9;
+}
+
+.topbar-contact a {
+    color: #e5e7eb;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+.topbar-contact a:hover {
+    text-decoration: underline;
+}
+
+/* ---- Navigation ---- */
+.navbar {
+    background: #111827;
+}
+
+.nav-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    gap: 18px;
+    padding: 8px 20px;
+    flex-wrap: wrap;
+}
+
+.nav-link {
+    color: #d1d5db;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 4px 0;
+}
+
+.nav-link:hover {
+    color: #ffffff;
+}
+
+/* ---- Main card ---- */
+.main {
+    flex: 1;
+    padding: 30px 16px 50px;
+}
+
+.card {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 32px 40px 40px;
+    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.07);
+    border-radius: 10px;
+}
+
+/* ---- Sections ---- */
+.section {
+    margin-top: 32px;
+}
+
+.section:first-of-type {
     margin-top: 0;
-    font-size: 32px;
 }
 
-h2 {
-    margin-top: 40px;
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 6px;
-    font-size: 22px;
+.section-title {
+    font-size: 20px;
+    margin-bottom: 8px;
+    border-left: 4px solid #2563eb;
+    padding-left: 10px;
 }
 
 p {
-    font-size: 16px;
+    font-size: 15px;
     line-height: 1.7;
+    margin-top: 6px;
+    margin-bottom: 8px;
 }
 
+ul {
+    margin: 6px 0 6px 18px;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 4px;
+}
+
+/* ---- Links ---- */
 a {
-    color: #0056b3;
-    text-decoration: none;
+    color: #2563eb;
 }
 
 a:hover {
     text-decoration: underline;
 }
 
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 40px;
+/* ---- Small details ---- */
+.badge-link {
+    display: inline-block;
+    margin-top: 4px;
+    padding: 6px 12px;
+    border-radius: 999px;
+    border: 1px solid #2563eb;
+    font-size: 13px;
+    text-decoration: none;
 }
 
-.contact {
-    text-align: right;
-    font-size: 15px;
-}
-
-.section {
-    margin-top: 35px;
-}
-
-ul {
-    margin-top: 10px;
-}
-
-li {
-    margin-bottom: 6px;
+.badge-link:hover {
+    background: #eff6ff;
 }
 
 .footer {
-    margin-top: 60px;
-    font-size: 14px;
-    color: #666;
-    border-top: 1px solid #ddd;
-    padding-top: 15px;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 12px 20px 24px;
+    font-size: 13px;
+    color: #6b7280;
 }
 </style>
 </head>
 
 <body>
+<div class="page-wrapper">
 
-<div class="container">
-
-<div class="header">
-  <div>
-    <h1>Kamila Kulmambetova</h1>
-    <p>
-      PhD Candidate in Economics<br>
-      University of Stavanger
-    </p>
+<!-- Top bar -->
+<header class="topbar">
+  <div class="topbar-inner">
+    <div>
+      <div class="topbar-name">Kamila Kulmambetova</div>
+      <div class="topbar-role">PhD Candidate in Economics · University of Stavanger</div>
+    </div>
+    <div class="topbar-contact">
+      <div>Email: <a href="mailto:kamila.research@gmail.com">kamila.research@gmail.com</a></div>
+    </div>
   </div>
+</header>
 
-  <div class="contact">
-    <p>
-      Email:<br>
-      <a href="mailto:kamila.research@gmail.com">kamila.research@gmail.com</a>
-    </p>
+<!-- Simple navigation -->
+<nav class="navbar">
+  <div class="nav-inner">
+    <a class="nav-link" href="#about">About</a>
+    <a class="nav-link" href="#jmp">Job Market Paper</a>
+    <a class="nav-link" href="#research">Research</a>
+    <a class="nav-link" href="#cv">CV</a>
   </div>
+</nav>
+
+<main class="main">
+  <div class="card">
+
+    <!-- About -->
+    <section class="section" id="about">
+      <h2 class="section-title">About</h2>
+      <p>
+        I am a PhD candidate in economics at the University of Stavanger. My research lies at the
+        intersection of environmental economics, applied microeconometrics, and aquaculture economics,
+        with a focus on how firms respond to non-point-source environmental regulation and spatially
+        differentiated policy instruments.
+      </p>
+    </section>
+
+    <!-- JMP -->
+    <section class="section" id="jmp">
+      <h2 class="section-title">Job Market Paper</h2>
+      <p>
+        <strong>Firm Behavior at an Environmental Regulatory Threshold: Empirical Evidence from the Norwegian Salmon Aquaculture Traffic Light Regulation</strong><br>
+        <a class="badge-link" href="jmp.pdf">Download job market paper (PDF)</a>
+      </p>
+
+      <p>
+        This paper provides causal evidence on how firms adjust their behavior in response to an ambient,
+        threshold-based environmental regulation. I study Norway’s “Traffic Light System” for salmon
+        aquaculture, which classifies coastal production areas into green, yellow, or red zones based on
+        observed sea-lice levels and ties future production opportunities to these color assignments. I
+        assemble a site-level panel for 2017–2021 covering almost all Norwegian salmon farms, with monthly
+        biomass, weekly treatment intensity, and weekly lice levels.
+      </p>
+
+      <p>
+        The analysis focuses on active, high-biomass sites located within 30 km of internal Traffic Light
+        borders, where neighboring farms operate in the same coastal environment but face different
+        regulatory stringency. I exploit these spatial discontinuities in a sharp geographic regression
+        discontinuity design comparing sites just inside red zones to sites just inside non-red zones. The
+        main outcome is treatment intensity at the site level, interpreted as firms’ operational response
+        to tighter regulation. I find that farms assigned to red areas substantially increase the use of
+        lice treatments relative to nearby farms in yellow/green areas, consistent with stronger compliance
+        efforts under more stringent classifications. The design is complemented by placebo contrasts along
+        borders with identical colors and by restrictions to high-activity periods.
+      </p>
+
+      <p>
+        The paper speaks to the empirical literature on firm responses to environmental regulation,
+        showing that an ambient, threshold-based policy can induce significant changes in costly abatement
+        behavior without taking a stand on welfare or environmental effectiveness.
+      </p>
+    </section>
+
+    <!-- Research fields + working papers -->
+    <section class="section" id="research">
+      <h2 class="section-title">Research</h2>
+      <p><strong>Research fields.</strong> Environmental economics; applied microeconometrics; aquaculture
+      economics; policy evaluation.</p>
+
+      <p><strong>Working papers.</strong></p>
+      <ul>
+        <li>Title 1</li>
+        <li>Title 2</li>
+      </ul>
+    </section>
+
+    <!-- CV -->
+    <section class="section" id="cv">
+      <h2 class="section-title">Curriculum Vitae</h2>
+      <p>
+        <a class="badge-link" href="cv.pdf">Download CV (PDF)</a>
+      </p>
+    </section>
+
+  </div>
+</main>
+
+<footer class="footer">
+  Last updated: 2025
+</footer>
+
 </div>
-
-<div class="section">
-  <h2>Job Market Paper</h2>
-  <p>
-    <strong>Firm Behavior at an Environmental Regulatory Threshold: Empirical Evidence from the Norwegian Salmon Aquaculture Traffic Light Regulation</strong><br>
-    <a href="jmp.pdf">Download PDF</a>
-  </p>
-
-  <p>
-    This paper provides causal evidence on how firms adjust their behavior in response to an ambient, threshold-based environmental regulation. I study Norway’s “Traffic Light System” for salmon aquaculture, which classifies coastal production areas into green, yellow, or red zones based on observed sea-lice levels and ties future production opportunities to these color assignments. I assemble a site-level panel for 2017–2021 covering almost all Norwegian salmon farms, with monthly biomass, weekly treatment intensity, and weekly lice levels.
-  </p>
-
-  <p>
-    The analysis focuses on active, high-biomass sites located within 30 km of internal Traffic Light borders, where neighboring farms operate in the same coastal environment but face different regulatory stringency. I exploit these spatial discontinuities in a sharp geographic regression discontinuity design comparing sites just inside red zones to sites just inside non-red zones. The main outcome is treatment intensity at the site level, interpreted as firms’ operational response to tighter regulation. I find that farms assigned to red areas substantially increase the use of lice treatments relative to nearby farms in yellow/green areas, consistent with stronger compliance efforts under more stringent classifications. The design is complemented by placebo contrasts along borders with identical colors and by restrictions to high-activity periods.
-  </p>
-
-  <p>
-    The paper speaks to the empirical literature on firm responses to environmental regulation, showing that an ambient, threshold-based policy can induce significant changes in costly abatement behavior without taking a stand on welfare or environmental effectiveness.
-  </p>
-</div>
-
-<div class="section">
-  <h2>Curriculum Vitae</h2>
-  <p><a href="cv.pdf">Download CV</a></p>
-</div>
-
-<div class="section">
-  <h2>Research Fields</h2>
-  <p>Environmental Economics, Applied Microeconometrics, Aquaculture Economics, Policy Evaluation</p>
-</div>
-
-<div class="section">
-  <h2>Working Papers</h2>
-  <ul>
-    <li>Title 1</li>
-    <li>Title 2</li>
-  </ul>
-</div>
-
-<div class="footer">
-  <p>Last updated: 2025</p>
-</div>
-
-</div>
-
 </body>
 </html>
