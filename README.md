@@ -1,2 +1,2 @@
-# kamila-research.github.io
+# My research
 Personal academic website for Kamila Kulmambetova
